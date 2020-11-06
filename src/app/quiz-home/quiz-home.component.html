@@ -1,0 +1,20 @@
+<div class="center headerContainer container-fluid">
+    <div class="jumbotron jumbotron-fluid">
+        <h1>JavaScript Quiz</h1>
+    </div>
+
+    <div class="mainContainer container-fluid">
+        <div *ngIf="flag == false">
+            <h3>Welcome to the Quiz on JavaScript!</h3>
+            Click Start to Begin Test!
+            <br />
+            <button class="startBtn btn btn-primary" (click)="loadName()">START</button>
+        </div>
+
+        <div *ngIf="flag">
+            <p>Please enter your name below</p>
+            <input name="name" placeholder="Enter Your Name">
+            <button class="continueBtn btn btn-primary">Continue</button>
+        </div>
+    </div>
+</div>
