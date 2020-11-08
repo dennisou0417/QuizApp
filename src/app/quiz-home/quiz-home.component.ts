@@ -50,6 +50,7 @@ export class QuizHomeComponent implements OnInit {
   choice4="";
   answer="";
   correct=0;
+  score=0;
 
   loadQuestion():void{
     if(this.i < this.quizInfo.length){
@@ -71,8 +72,25 @@ export class QuizHomeComponent implements OnInit {
       this.correct+=1;
       this.loadQuestion();
     }else{
+      this.loadQuestion();
       console.log("wrong");
     }
+  }
+
+  restart():void{
+    this.i=0;
+    this.correct=0;
+    this.quizFlag = true;
+    this.resultFlag=false;
+    this.loadQuestion();
+  }
+
+  menu():void{
+    this.resultFlag=false;
+    this.i=0;
+    this.correct=0;
+    this.name="";
+    this.startFlag=true;
   }
   
 }

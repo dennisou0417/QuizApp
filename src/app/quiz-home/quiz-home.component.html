@@ -33,12 +33,22 @@
         </div>
 
         <div *ngIf="resultFlag">
-            Congratulations {{this.name}} passed with a score of {{(this.correct/this.i)*100}} %
-            <br />
-            Would You Like To Retake The Quiz Or Return To The Main Menu?
-            <br />
-            <button class="btn btn-primary">Retake</button>
-            <button class="btn btn-primary">Menu</button>
+            <div *ngIf="(this.correct/this.i) >= .80; else elseBlock">
+                Congratulations {{this.name}} passed with a score of {{(this.correct/this.i)*100}} %
+                <br />
+                Would You Like To Retake The Quiz Or Return To The Main Menu?
+                <br />
+                <button class="btn btn-primary" (click)="restart()">Retake</button>
+                <button class="btn btn-primary" (click)="menu()">Menu</button>
+            </div>
+            <ng-template #elseBlock>
+                Sorry {{this.name}}, you've failed the quiz with a {{(this.correct/this.i)*100}} %
+                <br />
+                Would You Like To Retake The Quiz Or Return To The Main Menu?
+                <br />
+                <button class="btn btn-primary" (click)="restart()">Retake</button>
+                <button class="btn btn-primary" (click)="menu()">Menu</button>
+            </ng-template>
         </div>
         
     </div>
