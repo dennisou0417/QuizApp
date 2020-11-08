@@ -1,5 +1,5 @@
 export class Quiz{
-    constructor(question: string, choice1: string, choice2: string, choice3: string, answer: string){
+    constructor(public question: string, public choice1: string, public choice2: string, public choice3: string, public choice4: string, public answer: string){
         
     }
 }

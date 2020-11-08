@@ -21,4 +21,17 @@
     margin:10px;
 }
 
+.error{
+    color:red;
+}
 
+.choiceGroup{
+    display:grid;
+}
+
+.scoreBoard{
+    background-color: whitesmoke;
+    border-radius:20px;
+    padding: 30px;
+    width:150px;
+}

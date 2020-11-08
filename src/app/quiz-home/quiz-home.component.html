@@ -4,17 +4,42 @@
     </div>
 
     <div class="mainContainer container-fluid">
-        <div *ngIf="flag == false">
+        <div *ngIf="startFlag">
             <h3>Welcome to the Quiz on JavaScript!</h3>
             Click Start to Begin Test!
             <br />
             <button class="startBtn btn btn-primary" (click)="loadName()">START</button>
         </div>
 
-        <div *ngIf="flag">
+        <div *ngIf="nameFlag">
             <p>Please enter your name below</p>
-            <input name="name" placeholder="Enter Your Name">
-            <button class="continueBtn btn btn-primary">Continue</button>
+            <input name="name" placeholder="Enter Your Name" ngModel required #nameRef="ngModel" pattern="[a-zA-z\s]">
+            <button class="continueBtn btn btn-primary" (click)="checkName(nameRef.value)">Continue</button>
+            <br />
+            <span class="error">{{msg}}</span>
         </div>
+
+        <div *ngIf="quizFlag">
+            <h4>{{this.question}}</h4>
+            <div class="choiceGroup">
+                <button class="btn btn-primary" (click)="checkAnswer(this.choice1)">{{this.choice1}}</button>
+                <button class="btn btn-primary" (click)="checkAnswer(this.choice2)">{{this.choice2}}</button>
+                <button class="btn btn-primary" (click)="checkAnswer(this.choice3)">{{this.choice3}}</button>
+                <button class="btn btn-primary" (click)="checkAnswer(this.choice4)">{{this.choice4}}</button>
+            </div>
+            <div class="scoreBoard">
+                SCORE: {{this.correct}}/{{this.i-1}}
+            </div>
+        </div>
+
+        <div *ngIf="resultFlag">
+            Congratulations {{this.name}} passed with a score of {{(this.correct/this.i)*100}} %
+            <br />
+            Would You Like To Retake The Quiz Or Return To The Main Menu?
+            <br />
+            <button class="btn btn-primary">Retake</button>
+            <button class="btn btn-primary">Menu</button>
+        </div>
+        
     </div>
 </div>
