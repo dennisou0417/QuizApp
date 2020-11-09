@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Quiz } from './model.quiz';
-import { QuizService } from '../quiz.service'; 
-import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
+import { QuizService } from '../quiz.service';
 
 @Component({
   selector: 'app-quiz-home',
@@ -73,7 +72,6 @@ export class QuizHomeComponent implements OnInit {
       this.loadQuestion();
     }else{
       this.loadQuestion();
-      console.log("wrong");
     }
   }
 

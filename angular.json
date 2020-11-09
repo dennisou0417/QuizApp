@@ -122,8 +122,13 @@
               "devServerTarget": "angular-quiz-app:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "angular-quiz-app"
 }
